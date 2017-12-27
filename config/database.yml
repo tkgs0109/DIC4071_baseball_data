@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  template: template0
+
+development:
+  <<: *default
+  database: app4071_baseball_data_development
+
+test:
+  <<: *default
+  database: app4071_baseball_data_test
+
+production:
+  <<: *default
+  database: app4071_baseball_data_production
+  username: app4071_baseball_data
+  password: <%= ENV['APP4071_BASEBALL_DATA_DATABASE_PASSWORD'] %>
